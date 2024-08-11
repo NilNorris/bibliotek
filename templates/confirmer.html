@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Supprimer | nil</title> 
+        <link href={{url_for('static',filename='/font/font.css')}}  rel="stylesheet">
+        <link href= {{url_for('static',filename='/node_modules/bootstrap/dist/css/bootstrap.css')}} rel="stylesheet">        
+        <link href={{url_for('static',filename='/style.css')}}  rel="stylesheet">
+        <link href={{url_for('static', filename='/elegant_font/elegant.css')}} rel="stylesheet" /> 
+        <style type="text/css">
+        body {
+          background-image:url('../../../static/img/group.jpg');
+          background-size:100%; 
+        }
+
+        </style>
+    </head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#"><img src={{url_for('static',filename='/img/logo.png')}} > GESTION DE BIBLIOTHEQUE</a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('accueil')}}>Accueil</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('membre')}}>Membres</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('livre')}}>Livres</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('rendu',notif=0)}}>Prêt / Rendu</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('historique',notif=0)}}>Historiques</a>
+    </li>
+  </ul>
+</nav>
+<div class="container">
+<p></p>
+<div class="card">
+  <div class="card-header text-center"><h4>CONFIRMER</h4></div>
+  <div class="card-body text-center">
+    <p>Voulez-vous vraiment supprimer ?</p>
+    <a href={{url_for('supprimer',dom=dom,id_supp=id_supp) }}> <button class="btn btn-primary">Oui</button></a>
+    {% if dom == 'livre' %}
+    <a href={{url_for('livre') }}> <button class="btn btn-primary">Non</button></a>
+    {% else  %}
+    <a href={{url_for('membre') }}> <button class="btn btn-primary">Non</button></a>
+    {% endif %}
+  </div>
+</div>
+<br>
+</div>
+</body>
+</html>

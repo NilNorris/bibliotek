@@ -1,0 +1,44 @@
+@font-face {
+	font-family: 'ffb';
+	src: url('../Fonts/free-fa-brands-400.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'ffr';
+	src: url('../Fonts/free-fa-regular-400.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'ffs';
+	src: url('../Fonts/free-fa-solid-900.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'jiza1';
+	src: url('../Fonts/jizaRExUiTo99u79D0KExQ.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'jiza2';
+	src: url('../Fonts/jizfRExUiTo99u79B_mh0O6tLQ.woff2') format('woff2');
+}
+
+.ffb{
+	font-family: 'ffb';
+}
+
+.ffr{
+	font-family: 'ffr';
+}
+
+.ffs{
+	font-family: 'ffs';
+}
+
+.jiza1{
+	font-family: 'jiza1';
+}
+
+.jiza2{
+	font-family: 'jiza2';
+}

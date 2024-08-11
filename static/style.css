@@ -1,0 +1,40 @@
+@font-face {
+	font-family: 'Calibri';
+	src: url('calibri.ttf') format('ttf');
+}
+
+body {
+	font-family: "Arial"
+}
+
+#logo {
+	text-align: center;
+	background-color: rgba(0,0,255,0.5);
+	background-image: url('route.png');
+}
+
+
+#coop {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.bt-action {
+	width: 10px;
+}
+
+.bt-action:hover {
+	background-color: rgba(0,0,0,0.1);
+}
+
+#main {
+	height: 500px;
+	background-image: url('route.png');
+	width: 800px;
+	padding: 100px;
+}
+
+#body {
+	background-image: url("route.png"); 
+}
+

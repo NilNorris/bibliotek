@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Membre</title> 
+        <link href={{url_for('static',filename='/font/font.css')}}  rel="stylesheet">
+        <link href= {{url_for('static',filename='/node_modules/bootstrap/dist/css/bootstrap.css')}} rel="stylesheet">        
+        <link href={{url_for('static',filename='/style.css')}}  rel="stylesheet">
+        <link href={{url_for('static', filename='/elegant_font/elegant.css')}} rel="stylesheet" /> 
+        <style type="text/css">
+        body {
+          background-image:url('../../static/img/group.jpg');
+          background-size:100%; 
+        }
+
+        </style>
+    </head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#"><img src={{url_for('static',filename='/img/logo.png')}} > GESTION DE BIBLIOTHEQUE</a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('accueil')}}>Accueil</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href={{url_for('membre')}}>Membres</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('livre')}}>Livres</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('rendu',notif=0)}}>Prêt / Rendu</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('historique',notif=0)}}>Historiques</a>
+    </li>
+  </ul>
+</nav>
+<div class="container">
+<p></p>
+<div class="card">
+  <div class="card-header text-center"><h4>MEMBRES</h4></div>
+  <div class="card-body text-center">
+
+      {% if notif == '1' %}
+      <p>
+        <div class="alert alert-success">
+        <strong>Enregistrement réussie !</strong>
+      </div>
+      </p>
+      {% elif notif == '2' %}
+      <p>
+          <div class="alert alert-success">
+          <strong>Suppression réussie !</strong> 
+        </div>
+        </p>
+      {% elif notif == '3' %}
+        <p>
+            <div class="alert alert-success">
+            <strong>Modification réussie ! !</strong> 
+          </div>
+          </p>
+      {% endif %}
+
+    <table class="table">
+    <thead>
+      <tr>
+      <th>N°</th>
+        <th>Nom</th>
+        <th>Prenoms</th>
+        <th>Adresse</th>
+        <th>Contact</th>
+        <th>Date d'adhésion</th>
+        <th><div class="btn-group">
+            <a href={{url_for('ajouter_membre')}}>
+                <button type="button" class="btn btn-light"><span data-icon="&#xe050;"></span></button>
+            </a>
+</div></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for m in list_membre %}
+      <tr>
+      <td>{{m.num}}</td>
+        <td>{{m.nom}}</td>
+        <td>{{m.prenom}}</td>
+        <td>{{m.adr}}</td>
+        <td>{{m.tel}}</td>
+        <td>{{m.date_adh}}</td>
+        <td> <div class="btn-group">
+            <a href={{url_for('confirmer',dom='membre',id_supp=m._id)}}><button type="button" class="btn btn-light"><span data-icon="&#xe07d;"></span></button></a>
+            <a href={{url_for('modifier_membre',idl=m._id)}}>
+                <button type="button" class="btn btn-light"><span data-icon="&#xe05a;"></span></button>
+            </a>
+</div> </td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+  </div>
+</div>
+<br>
+</div>
+</body>
+</html>

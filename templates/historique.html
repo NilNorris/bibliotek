@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Historiques</title> 
+        <link href={{url_for('static',filename='/font/font.css')}}  rel="stylesheet">
+        <link href= {{url_for('static',filename='/node_modules/bootstrap/dist/css/bootstrap.css')}} rel="stylesheet">        
+        <link href={{url_for('static',filename='/style.css')}}  rel="stylesheet">
+        <link href={{url_for('static', filename='/elegant_font/elegant.css')}} rel="stylesheet" /> 
+        <style type="text/css">
+        body {
+          background-image:url('../../static/img/group.jpg');
+          background-size:100%; 
+        }
+
+        </style>
+    </head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#"><img src={{url_for('static',filename='/img/logo.png')}} > GESTION DE BIBLIOTHEQUE</a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('accueil')}}>Accueil</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('membre')}}>Membres</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('livre')}}>Livres</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('rendu',notif=0)}}>Prêt / Rendu</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href={{url_for('historique',notif=0)}}>Historiques</a>
+    </li>
+  </ul>
+</nav>
+<div class="container">
+<p></p>
+<div class="card">
+  <div class="card-header text-center"><h4>HISTORIQUES</h4></div>
+  <div class="card-body text-center">
+      {% if notif == '1' %}
+      <p>
+        <div class="alert alert-success">
+        <strong>Un livre rendu !</strong>
+      </div>
+      </p>
+      {% endif %}
+    <table class="table">
+    <thead>
+      <tr>
+      <th>Membre</th>
+        <th>Livre</th>
+        <th>Date de prêt</th>
+        <th>Date de rendu</th>
+</div></th>
+      </tr>
+    </thead>
+    <tbody>
+ {% for h in hist %}
+      {% if h.rdate == None %}
+      {% else %}
+      <tr>
+      <td>{{h.pnum}}</td>
+        <td>{{h.pliv}}</td>
+        <td>{{h.pdate}}</td>
+        <td>{{h.rdate}}</td>
+      </tr>
+      <tr>
+        {% endif %}
+   {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+<br>
+</div>
+</body>
+</html>

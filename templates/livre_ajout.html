@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Livre</title> 
+        <link href={{url_for('static',filename='/font/font.css')}}  rel="stylesheet">
+        <link href= {{url_for('static',filename='/node_modules/bootstrap/dist/css/bootstrap.css')}} rel="stylesheet">        
+        <link href={{url_for('static',filename='/style.css')}}  rel="stylesheet">
+        <link href={{url_for('static', filename='/elegant_font/elegant.css')}} rel="stylesheet" /> 
+        <style type="text/css">
+        body {
+          background-image:url('../../static/img/group.jpg');
+          background-size:100%; 
+        }
+
+        </style>
+    </head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#"><img src={{url_for('static',filename='/img/logo.png')}} > GESTION DE BIBLIOTHEQUE</a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('accueil')}}>Accueil</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('membre')}}>Membres</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href={{url_for('livre')}}>Livres</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('rendu',notif=0)}}>Prêt / Rendu</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href={{url_for('historique',notif=0)}}>Historiques</a>
+    </li>
+  </ul>
+</nav>
+<div class="container">
+<p></p>
+<div class="card">
+  <div class="card-header text-center"><h4>AJOUTER/MODIFIER LIVRE</h4></div>
+  <div class="card-body text-center">
+     <form method="POST">
+  <div class="form-group">
+    <label for="Nom">Nom du livre:</label>
+    <input type="nom" class="form-control" id="Nom" name="nom" value={{liv.nom}}>
+  </div>
+  <div class="form-group">
+    <label for="categ">Catégorie :</label>
+    <input type="text" class="form-control" id="categ" name="categ" value={{liv.categ}}>
+  </div>
+  <div class="form-group">
+    <label for="auteur">Auteur :</label>
+    <input type="text" class="form-control" id="auteur" name="auteur" value={{liv.auteur}}>
+  </div>
+  <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form> 
+  </div>
+</div>
+<br>
+</div>
+</body>
+</html>

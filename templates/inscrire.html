@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Inscrire</title> 
+        <link href={{url_for('static',filename='/font/font.css')}}  rel="stylesheet">
+        <link href= {{url_for('static',filename='/node_modules/bootstrap/dist/css/bootstrap.css')}} rel="stylesheet">        
+        <link href={{url_for('static',filename='/style.css')}}  rel="stylesheet">
+        <link href={{url_for('static', filename='/elegant_font/elegant.css')}} rel="stylesheet" /> 
+        <style type="text/css">
+        body {
+          background-image:url('../static/img/group.jpg');
+          background-repeat: space;
+          background-position: center;
+        }
+        </style>
+    </head>
+<body>
+<div>
+        <br><br><br>
+    <div class="container" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Creer une compte</h4>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                  {% if err %}
+                    <div class="alert alert-danger">
+                        <strong>Mot de passe non identique ou invalide!</strong>
+                      </div>
+                  {% endif %}
+                  <div class="form-group">
+                    <label for="email">Nom d'utilisateur :</label>
+                    <input type="text" class="form-control" id="email" name="user">
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Mot de passe :</label>
+                    <input type="password" class="form-control" id="pwd" name="mdp">
+                  </div>
+                  <div class="form-group">
+                        <label for="pwd">Confirmer Mot de passe :</label>
+                        <input type="password" class="form-control" id="pwd" name="mdp2">
+                      </div>
+                  <button type="submit" class="btn btn-primary">Connecter</button>
+                  <a href={{url_for('login')}}><button type="button" class="btn btn-primary">Retour</button></a>
+                </form> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+</body>
+</html>
